@@ -71,9 +71,16 @@ To support the use of our output, we planned to compose a brief on-demand traini
 
 *TODO: (Pinar), Vilém, Nene, and Paulette - what was the process, how you worked, what is the result*
 
+In DAISY the DPIA template is based on the [CNIL template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf) which is a template widely used for this purpose within Europe. Therefore we used that CNIL template to construct the questionnaire structure of the DPIA knowledge model.
+
+> what else is there to say?
+
+
+
 ## DPIA Document Template
 
 *TODO: Nene and Paulette - what was the process, how you worked, what is the result*
+
 
 ## DPIA Projects in DSW
 
