@@ -70,6 +70,7 @@ To support the use of our output, we planned to compose a brief on-demand traini
 ## Forming DPIA Knowledge Model
 
 *TODO: (Pinar), Vilém, Nene, and Paulette - what was the process, how you worked, what is the result*
+
 The DPIA Knowledge model aims to analyze, identify and minimize the data protection risks of a research project. This DPIA knowledge model, mainly inspired by the [CNIL Template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf) with the addition of the Luxembourg Centre for Systems Biomedicine (LCSB) DPIA Template and some [ICO guidance](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/data-protection-impact-assessments-dpias/how-do-we-do-a-dpia/#how)), describes:
 
 * The identification of the need for a DPIA,
@@ -87,7 +88,7 @@ and measures/controls to mitigate those risks.
 
 *TODO: Nene and Paulette - what was the process, how you worked, what is the result*
 
-In order to have the possibility to export the DPIA Knowledge model, in a  document format, which follow the structure of the CNIL Template, we have set up the DPIA Document Template.  It allows the different responses of the DPIA knowledge model to be collected in one document that can be exported in differents formats, e.g., HTML, RDF, MS WORD Document, etc. We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template, recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
+In order to have the possibility to export the DPIA Knowledge model, in a  document format, which follow the structure of the CNIL Template, we have set up the DPIA Document Template.  It allows the different responses of the DPIA knowledge model to be collected in one document that can be exported in differents formats, e.g., HTML, MS WORD Document, etc. We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template, recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
 ## DPIA Projects in DSW
 
 *TODO: Nene and Vilém - how the results work together (KM+template)*
