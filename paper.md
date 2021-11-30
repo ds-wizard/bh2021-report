@@ -89,9 +89,9 @@ With such approach, data in DAISY can be independently changed while selected pr
 
 ## Integration Question for DAISY Projects
 
-DSW already supports integration question since v1.6.0 (April 2019). It allows to query a REST API for type hints – as user types reply, it suggests answers provided from the API response, and user can select the reply from integration. The advantage is configurability of the integrations and the stored ID of selected item. On the other hand, it does not allow any form of user authentication towards the external API nor more complex item selection than just regular input dropdown. In the example below, you can see how the integration works for selecting affiliation from [Research Organization Registry (ROR)](https://ror.org).
+DSW already supports integration question since v1.6.0 (April 2019). It allows to query a REST API for type hints – as user types reply, it suggests answers provided from the API response, and user can select the reply from integration. The advantage is configurability of the integrations and the stored ID of selected item. On the other hand, it does not allow any form of user authentication towards the external API nor more complex item selection than just regular input dropdown. In Figure X **TODO: fix number**, you can see how the integration works for selecting affiliation from [Research Organization Registry (ROR)](https://ror.org).
 
-*TODO: Marek - screenshot of the DSW*
+![Integration question for affiliation using ROR.org](./figures/original-integration-question.png)
 
 We tried that it is possible to create such an integration for DAISY projects. However, it has two pitfalls:
 
@@ -130,14 +130,9 @@ The widget implemented on DAISY's side allows users to pick their projects and s
 
 To allow retrieving project data from DAISY using its REST API, we had to allow making HTTP requests from Jinja2 templates. It has been added as a new feature to the [DSW Document Worker](https://github.com/ds-wizard/document-worker) component. As it is written in Python programming language, we decided to use the well-known [Requests library](https://docs.python-requests.org/en/latest/). Because any data steward can upload own template and creating requests might be harmful, we also designed a configuration for the document worker that can enable this feature for specific templates (based on their IDs), set limit and timeout for the HTTP requests made from Jinja2.
 
-To make limits and timeouts effective, we had to introduce a simple wrapper class around requests library. An object of such class is then passed as variable into a Jinja2 template if the feature is enabled. On each requests through the object, a counter is increased and check against the limit. The configured timeout is plainly passed to the call of Requests library functions. It does not support any sessions as it is expected that just a single request (or few consecutive requests) will be made in behalf of document generation speed. A HTTP requests can be made from a Jinja2 template in the way shown in the following code snippet.
+To make limits and timeouts effective, we had to introduce a simple wrapper class around requests library. An object of such class is then passed as variable into a Jinja2 template if the feature is enabled. On each requests through the object, a counter is increased and check against the limit. The configured timeout is plainly passed to the call of Requests library functions. It does not support any sessions as it is expected that just a single request (or few consecutive requests) will be made in behalf of document generation speed. A HTTP requests can be made from a Jinja2 template in the way shown in Figure X **TODO: fix number**.
 
-```jinja2
-{%- set response = requests.get("http://api.example.com?param=" ~ myVar) -%}
-{%- if response.ok -%}
-  Some value from response: {{ response.json()["someField"] }}
-{%- endif -%}
-```
+![Example HTTP request in Jinja2 template](./figures/template-http-request.png)
 
 ## DPIA Appendix Template using DAISY
 
