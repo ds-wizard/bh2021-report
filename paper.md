@@ -54,7 +54,7 @@ This report summarizes our activities and achievements in connecting Data Stewar
 
 # Introduction
 
-GDPR requires research projects with sensitive human data to perform a data protection impact assessment (DPIA) for documenting the project’s data protection risks and corresponding safeguards. Data stewards across Europe are tasked to support researchers with DPIAs, which occur commonly in tandem with data management planning. Two ELIXIR tools fall in the data protection realm. Data Stewardship Wizard (DSW) [@dswPaper] raises awareness for data protection requirements, such as the DPIA. However, it is not specialised in DPIA reporting. The Data Information System (DAISY), which allows institutions to keep a register of their projects using sensitive data, stores structured information on the project’s GDPR-relevant aspects – crucial input to a DPIA. Meanwhile, DAISY lacks the means to combine project facts with the narrative response needed in a DPIA.
+GDPR requires research projects with sensitive human data to perform a data protection impact assessment (DPIA) for documenting the project’s data protection risks and corresponding safeguards. Data stewards across Europe are tasked to support researchers with DPIAs, which occur commonly in tandem with data management planning. Two ELIXIR tools fall in the data protection realm. [Data Stewardship Wizard (DSW)](https://ds-wizard.org) [@dswPaper] raises awareness for data protection requirements, such as the DPIA. However, it is not specialised in DPIA reporting. The [Data Information System (DAISY)](https://elixir.pages.uni.lu/daisy-doc/) [@daisyPaper], which allows institutions to keep a register of their projects using sensitive data, stores structured information on the project’s GDPR-relevant aspects – crucial input to a DPIA. Meanwhile, DAISY lacks the means to combine project facts with the narrative response needed in a DPIA.
 
 As the DSW and DAISY are highly complementary, we decided to integrate the two to support DPIAs. The integration has been designed in two independent tasks:
 
@@ -81,15 +81,24 @@ To support the use of our output, we planned to compose a brief on-demand traini
 
 # Querying DAISY Data in DSW
 
-*TODO: Marek - describe goals and motivation*
+The other independent approach that we decided to implement uses linking a DAISY project from DSW and then querying data using DAISY API when needed. The overal idea is shown in the figure below. User of DSW works on its project (with a goal to get a DMP but not limited to it) and in the questionnaire selects using an integration question one of the projects in DAISY. Now, the project from DAISY is linked via its link stored as a reply in DSW project. When user wants to produce a document, e.g., a DMP or a report, current DAISY project data are queried using DAISY REST API and transformed into the desired format. The user gets a document with data from DAISY project appropriately included within the other data originated directly from replies in DSW.
 
 *TODO: Jan - schema how it works*
 
+With such approach, data in DAISY can be independently changed while selected project in DSW remains the same (as reply in a questionnaire). Creating a document makes a snapshot of both DSW and DAISY projects using the selected document template. First, we needed to investigate how integration question in DSW can be used and how it must be extended to allow users select own projects from DAISY. Then, we had to solve how get the data from DAISY inside a DSW document template that uses [Jinja2 language](https://jinja.palletsprojects.com).
+
 ## Integration Question for DAISY Projects
 
-*TODO: Marek - motivation, describe issues with integration question*
+DSW already supports integration question since v1.6.0 (April 2019). It allows to query a REST API for type hints – as user types reply, it suggests answers provided from the API response, and user can select the reply from integration. The advantage is configurability of the integrations and the stored ID of selected item. On the other hand, it does not allow any form of user authentication towards the external API nor more complex item selection than just regular input dropdown. In the example below, you can see how the integration works for selecting affiliation from [Research Organization Registry (ROR)](https://ror.org).
 
 *TODO: Marek - screenshot of the DSW*
+
+We tried that it is possible to create such an integration for DAISY projects. However, it has two pitfalls:
+
+1. To access the API, secret token must be used for authorization. Everyone who wanting to have such a question (or whole knowledge model) in their DSW instance would need to acquire such token and place it into server configuration file.
+2. As there is no way to distinguish specific users, it must provide all (published) projects from DAISY. The natural behavior -- displaying only projects related to the user filling the questionnaire -- is not achievable.
+
+To overcome these two issues, we designed a new type of integration question described in the following subsection.
 
 ## DSW Widget Integrations
 
@@ -119,7 +128,16 @@ The widget implemented on DAISY's side allows users to pick their projects and s
 
 ## Retrieving Data for Document Generation
 
-*TODO: Marek - describe HTTP requests from DSW*
+To allow retrieving project data from DAISY using its REST API, we had to allow making HTTP requests from Jinja2 templates. It has been added as a new feature to the [DSW Document Worker](https://github.com/ds-wizard/document-worker) component. As it is written in Python programming language, we decided to use the well-known [Requests library](https://docs.python-requests.org/en/latest/). Because any data steward can upload own template and creating requests might be harmful, we also designed a configuration for the document worker that can enable this feature for specific templates (based on their IDs), set limit and timeout for the HTTP requests made from Jinja2.
+
+To make limits and timeouts effective, we had to introduce a simple wrapper class around requests library. An object of such class is then passed as variable into a Jinja2 template if the feature is enabled. On each requests through the object, a counter is increased and check against the limit. The configured timeout is plainly passed to the call of Requests library functions. It does not support any sessions as it is expected that just a single request (or few consecutive requests) will be made in behalf of document generation speed. A HTTP requests can be made from a Jinja2 template in the way shown in the following code snippet.
+
+```jinja2
+{%- set response = requests.get("http://api.example.com?param=" ~ myVar) -%}
+{%- if response.ok -%}
+  Some value from response: {{ response.json()["someField"] }}
+{%- endif -%}
+```
 
 ## DPIA Appendix Template using DAISY
 
