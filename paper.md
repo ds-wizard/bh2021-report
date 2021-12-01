@@ -97,11 +97,25 @@ To support the use of our output, we planned to compose a brief on-demand traini
 
 *TODO: Jan - screenshot of the DSW side, code snippet*
 
+Although the integration question was a good start, we needed some improvements. The main issue was that the standard integration question in DSW connects to a public API of an external service to find the results. However, in DAISY, users need to log in first to access their projects. So the standard solution was not suitable unless all of the projects in DAISY were public, which would not be desirable.
+
+Therefore, we came up with the idea of an integration widget. Instead of a search field in DSW, we can open a popup window with a web page implemented on the connected service side, in this case, DAISY. The implementation of the widget itself is the responsibility of the connected service. That means that any necessary functionality, such as login, can be implemented.
+
+We implemented the [DSW Integration Widget SDK](https://github.com/ds-wizard/dsw-integration-widget-sdk), a JavaScript library that is a wrapper for sending the selected options back to DSW, and corresponding supporting code on the DSW side. The library and DSW uses JavaScript `Window.postMessage()` under the hood for the communication between DSW and the popup window with the widget. Besides sending the answers back to DSW, the library also checks whether the widget was invoked from the allowed DSW instance to avoid leaking information somewhere unwanted.
+
+Once the question is answered using the widget, it works in the same way as the standard integration question regarding how it is saved. We save the name of the project in DAISY and the link for the project so it can be used for further processing.
+
+![Integration widget question in DSW - empty and with selected answer from DAISY](figures/dsw-daisy-question.png)
+
 ## Widget for DAISY Projects
 
 *TODO: Vilém (and Jan) - describe implementation on DAISY side*
 
 *TODO: Jan - screenshot of the "widget"*
+
+The widget implemented on DAISY's side allows users to pick their projects and send them back as an answer to DSW. When the widget is open in a popup window, it first checks whether the user is logged in. If so, they can see a list of their projects. If not, they are redirected to the login screen (within the same window), and after they log in, they can see their project. Then, they can pick one, the popup window is closed, and the answer is set in DSW.
+
+![Integration widget in DAISY showing a list of user's projects](figures/daisy-integration-widget.png)
 
 ## Retrieving Data for Document Generation
 
