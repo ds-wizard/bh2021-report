@@ -67,6 +67,13 @@ To support the use of our output, we planned to compose a brief on-demand traini
 
 *TODO: (Pinar) and Vilém - motivation for having DPIA KM+template in DSW, core idea and advantages*
 
+Daisy, aims at recording all DPIA relevant information on the processing. DPIA is usually set up using a template that researchers customise to suit their research project. The idea is therefore to use the flexibility of the DSW tool, to set up in DSW a knowdlege model, which will allow users to create a DPIA project by adding directly the relevant information contained in DAISY (GDPR data categories, Partners involved and GDPR roles, legal basis information,etc.)
+
+Advantages:
+* Writing a DPIA in DSW, Offers the possibility for the user to be guided through the process with advices and questions following a well-defined hierarchical structure.
+* Allows to export the DPIA in a format and structure of choice ( e.g. CNIL template): that process is both machine and human readable.
+
+
 ## Forming DPIA Knowledge Model
 
 *TODO: (Pinar), Vilém, Nene, and Paulette - what was the process, how you worked, what is the result*
@@ -93,7 +100,7 @@ In order to have the possibility to export the DPIA Knowledge model, in a  docum
 
 *TODO: Nene and Vilém - how the results work together (KM+template)*
 
-The final  DPIA knowledge model  will be released using the DSW registry. Users will be able to easily create their DPIA, and then export it by selecting the DPIA template whose sections are mapped to those of the Knowledge model, using the DSW interface. 
+The final  DPIA knowledge model  will be released using the DSW registry. Users will be able to easily create their DPIA projects, and then export them by selecting the DPIA template, whose sections are mapped to those of the Knowledge model, using the DSW interface. 
 
 
 # Querying DAISY Data in DSW
