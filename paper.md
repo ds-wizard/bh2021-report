@@ -83,7 +83,7 @@ To support the use of our output, we planned to compose a brief on-demand traini
 
 The other independent approach that we decided to implement uses linking a DAISY project from DSW and then querying data using DAISY API when needed. The overal idea is shown in the figure below. User of DSW works on its project (with a goal to get a DMP but not limited to it) and in the questionnaire selects using an integration question one of the projects in DAISY. Now, the project from DAISY is linked via its link stored as a reply in DSW project. When user wants to produce a document, e.g., a DMP or a report, current DAISY project data are queried using DAISY REST API and transformed into the desired format. The user gets a document with data from DAISY project appropriately included within the other data originated directly from replies in DSW.
 
-*TODO: Jan - schema how it works*
+![Design of DSW-DAISY Integration](./figures/integration-workflow.png)
 
 With such approach, data in DAISY can be independently changed while selected project in DSW remains the same (as reply in a questionnaire). Creating a document makes a snapshot of both DSW and DAISY projects using the selected document template. First, we needed to investigate how integration question in DSW can be used and how it must be extended to allow users select own projects from DAISY. Then, we had to solve how get the data from DAISY inside a DSW document template that uses [Jinja2 language](https://jinja.palletsprojects.com).
 
@@ -101,10 +101,6 @@ We tried that it is possible to create such an integration for DAISY projects. H
 To overcome these two issues, we designed a new type of integration question described in the following subsection.
 
 ## DSW Widget Integrations
-
-*TODO: Jan - describe the widget integration question*
-
-*TODO: Jan - screenshot of the DSW side, code snippet*
 
 Although the integration question was a good start, we needed some improvements. The main issue was that the standard integration question in DSW connects to a public API of an external service to find the results. However, in DAISY, users need to log in first to access their projects. So the standard solution was not suitable unless all of the projects in DAISY were public, which would not be desirable.
 
@@ -136,15 +132,21 @@ To make limits and timeouts effective, we had to introduce a simple wrapper clas
 
 ## DPIA Appendix Template using DAISY
 
-*TODO: Marek - describe template that renders the data from DAISY*
+Using the HTTP requests enabled in document templates, we implemented the [DPIA Appendix Template](https://github.com/ds-wizard/daisy-appendix-template) that can be easily re-used in other DSW document templates. It is based on the example KM where is only a single question that asks for the DAISY project using the widget integration. However, the template is designed in a way that its central part is a re-usable Jinja2 `macro`. Anyone can take this part of the template, include it in their own one and call this macro using DAISY project identifier as an argument.
+
+The macro itself makes three HTTP requests to DAISY API: retrieve project details, retrieve datasets for the project, and retrieve contracts for the project. If all of these three requests are successful, the DPIA appendix is rendered as a structured set of tables. Again, the rendering of separate tables is done using macros, so if someone needs to change the rendering, they can adjust some of the macros in the appendix template. In the end, one may use just the main macro for retrieving data from DAISY and write the whole rendering part on its own. All macros and parts of the appendix template are documented both in README and using Jinja2 comments.
 
 # Training Materials in EeLP
 
-*Brief section of just in conclusions?*
+As a part of our work, we also created a new on-demand course in the [ELIXIR-SI e-Learning Platform](https://elixir.mf.uni-lj.si). The course contains basic information about the outcomes of the BioHackathon and how to use them. It also summarizes some critical aspects of the related topics such as Data Stewardship, GDPR Compliance, Data Management Plans, or Data Protection Impact Assessment. We plan to extend the course in the future once the results (of tasks 1 and 2) are polished and recommended for wide use.
+
+The EeLP is based on the well-known [Moodle](https://moodle.org) learning management system. As such, it allows to improve the content continuously and add different types of activities and resources. We also plan to include a quiz or feedback for better user engagement in the future.
 
 # Conclusions and Future Steps
 
-*TODO*
+We achieved to complete both tasks that we initially set. The custom DPIA Knowledge Model in DSW, together with the related document template, can be used to create a project in DSW and answer questions to get the DPIA document. Both of these deliverables will need final polishing, e.g., styling the document template, and then can be published. We plan to publish them on GitHub (the template) as well as using [DSW Registry](https://registry.ds-wizard.org) service so anyone can easily pull it to their own DSW instance. In this way, both can be easily updated and maintained over time, and others will quickly get the latest versions.
+
+The second task brought new features to DSW. The integration question with widget still need some adjustments on the backend side of DSW (making it a new type of integration question); however, it is fully operational. The feature enabling HTTP requests from document templates are finalized, and it may be enhanced in the future if needed. Both of these features were released in version 3.6.0 of DSW. The widget implementation on the DAISY side also became directly part of the codebase, and [DSW Integration Widget SDK](https://github.com/ds-wizard/dsw-integration-widget-sdk) has been published on [npmjs.com](https://www.npmjs.com/package/@ds-wizard/integration-widget-sdk). Finally, the DPIA appendix template is ready to be (re-)used and further developed as any other DSW document template.
 
 # Acknowledgements
 
