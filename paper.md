@@ -43,7 +43,7 @@ affiliations:
 date: 23 November 2021
 bibliography: paper.bib
 group: \#18 DSW + DAISY
-authors_short: authors?
+authors_short: M. Suchánek, P. Alper, J. Slifka, V. Děd, N. D. Barry, P. Lieby, M. Vidak, and N. Zlender
 git_url: https://github.com/ds-wizard/bh2021-report
 event: BH2021
 ---
