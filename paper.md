@@ -75,11 +75,11 @@ Advantages:
 * Also, it allows exporting the DPIA in a format and structure of choice (e.g. the CNIL template): that process is both machine- and human-readable.
 
 
-## Forming DPIA Knowledge Model
+## Creating a DPIA Knowledge Model
 
 *TODO: (Pinar), Vilém, Nene, and Paulette - what was the process, how you worked, what is the result*
 
-The DPIA Knowledge model aims to analyze, identify and minimize the data protection risks of a research project. This DPIA knowledge model, mainly inspired by the [CNIL Template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf) with the addition of the Luxembourg Centre for Systems Biomedicine (LCSB) DPIA Template and some [ICO guidance](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/data-protection-impact-assessments-dpias/how-do-we-do-a-dpia/#how)), describes:
+The DPIA knowledge model aims to help in managing the data protection risks of a research project by identifying and analyzing those risks and the solutions implemented to mitigate them. This knowledge model is mainly inspired by the [CNIL Template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf), the DPIA template from the Luxembourg Centre for Systems Biomedicine (LCSB) DPIA Template, and some [ICO guidance](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/data-protection-impact-assessments-dpias/how-do-we-do-a-dpia/#how)). The DPIA knowledge model describes:
 
 * The identification of the need for a DPIA,
 * The nature, scope, context and purposes of the processing and the list of responsibilities relating to research,
