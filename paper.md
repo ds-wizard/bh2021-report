@@ -81,16 +81,15 @@ Advantages:
 
 The DPIA knowledge model aims to help in managing the data protection risks of a research project by identifying and analyzing those risks and the solutions implemented to mitigate them. This knowledge model is mainly inspired by the [CNIL Template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf), the DPIA template from the Luxembourg Centre for Systems Biomedicine (LCSB) DPIA Template, and some [ICO guidance](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/data-protection-impact-assessments-dpias/how-do-we-do-a-dpia/#how)). The DPIA knowledge model describes:
 
-* The identification of the need for a DPIA,
-* The nature, scope, context and purposes of the processing and the list of responsibilities relating to research,
-* The data processes and supporting assets, 
-* The proportionality and necessity of the processing, 
-* The measures taken to protect the rights of subjects,
-* The Identification, analyze, evaluation of data risks factors
-and measures/controls to mitigate those risks.
 
- The result is presented as a list of chapiters/questions and guidances to make better the experience of the user (researcher, data steward...) who implements the DPIA.
+* The identification of the need for a DPIA;
+* The nature, scope, context and purposes of the processing of data, as well as the list of related responsibilities;
+* The data processes and supporting assets;
+* The proportionality and necessity of the processing;
+* The measures taken to protect the rights of the subjects;
+* The identification, analyzis, and evaluation of the data risks factors and the measures and controls to mitigate those risks.
 
+The result is presented as a list of chapters, questions and guidances to facilitate the user (researcher, data steward...) experience  who implements the DPIA.
 
 ## DPIA Document Template
 
