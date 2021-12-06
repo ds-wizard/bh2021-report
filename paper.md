@@ -96,11 +96,12 @@ The result is presented as a list of chapters, questions, and guidances to facil
 *TODO: Nene and Paulette - what was the process, how you worked, what is the result*
 
 In order to have the possibility to export the DPIA Knowledge model in a  document format which follow the structure of the CNIL Template, we have set up the DPIA Document Template.  It allows the different responses of the DPIA knowledge model to be collected in one document that can be exported in differents formats, e.g., HTML, MS WORD Document, etc... We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template; recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
+
 ## DPIA Projects in DSW
 
 *TODO: Nene and Vilém - how the results work together (KM+template)*
 
-The final  DPIA knowledge model  will be released using the DSW registry. Users will be able to easily create their DPIA projects, and then export them by selecting the DPIA template, whose sections are mapped to those of the Knowledge model, using the DSW interface. 
+The final  DPIA knowledge model  will be released through the DSW registry. Using the DSW interface, user will be able to easily create their DPIA projects and export them by selecting the DPIA document template, whose sections are mapped to those of the knowledge model.
 
 
 # Querying DAISY Data in DSW
