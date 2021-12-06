@@ -58,10 +58,11 @@ The GDPR requires research projects with sensitive human data to perform a data 
 
 As the DSW and DAISY are highly complementary, we decided to integrate the two to support DPIAs in DSW. The integration has been designed in two independent tasks:
 
-1. **DPIA in DSW (Content-Based Integration)**: Allow to create DPIA directly in DSW by introducing a new Knowledge Model (questionnaire structure) and corresponding document template. After achieving this task, a user may create a DPIA project in DSW, fill in the information, and get a DPIA document. During the work in DSW, the user may benefit from all the features, including version history, collaboration, comments, and others.
-2. **Querying DAISY Data in DSW (Technical Integration)**: Enable linking a project in DAISY inside a project in DSW and querying DAISY project details using API when necessary. The goal is to benefit from DAISY GDPR-specific features and allow us to use them when generating documents in DSW. For example, the results of these tasks can be then used to create a data management plan (DMP) appendix related to GDPR compliance.
+1. **DPIA in DSW (Content-Based Integration)**: Allows to create a DPIA directly in DSW by introducing a new Knowledge Model (questionnaire structure) and a corresponding document output template. Thus, users may create a DPIA project in DSW, fill in the information, and generate a DPIA document. Also, working with DSW, users will benefit from all its intrinsic features like version history, collaboration, comments, and others.
+2. **Querying DAISY Data in DSW (Technical Integration)**: Enables linking to a project in DAISY from within a project in DSW and so querying the DAISY project details using an API when necessary. The goal is to benefit from DAISY GDPR-specific features and allow users to use those when generating documents in DSW. For example, one can then add to the data management plan (DMP) an appendix that exclusively deals with GDPR compliance.
 
-To support the use of our output, we planned to compose a brief on-demand training course in the ELIXIR e-Learning Platform. Training on DPIAs has already been identified as a gap by the ELIXIR Training Platform.
+To support and disseminate the use of our integration work, we also planned to compose a brief on-demand training course in the ELIXIR e-Learning Platform. Training on DPIAs has already been identified as a gap by the ELIXIR Training Platform.
+
 
 # DPIA in DSW
 
