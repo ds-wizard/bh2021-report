@@ -89,7 +89,7 @@ The DPIA knowledge model aims to help in managing the data protection risks of a
 * The measures taken to protect the rights of the subjects;
 * The identification, analyzis, and evaluation of the data risks factors and the measures and controls to mitigate those risks.
 
-The result is presented as a list of chapters, questions and guidances to facilitate the user (researcher, data steward...) experience  who implements the DPIA.
+The result is presented as a list of chapters, questions, and guidances to facilitate the user experience when implementing a DPIA.
 
 ## DPIA Document Template
 
