@@ -66,14 +66,13 @@ To support and disseminate the use of our integration work, we also planned to c
 
 # DPIA in DSW
 
-*TODO: (Pinar) and Vilém - motivation for having DPIA KM+template in DSW, core idea and advantages*
+Writing a data protection impact assessment for a scientific project is a challenging task. Input from multiple key groups is required to obtain complete and precise information. In addition to data stewards, which are commonly the ones in charge of the information collection since their knowledge overlaps all other involved domains, the process involves researchers themselves bringing knowledge of about the actual data and related scientific processes, data managers and IT staff describing the local IT infrastructures and external collaborators reporting on the shared data processing tasks. Finally, legal representatives (e.g. data protection officer) validates the resulting document with existing contracts, institutional policies and approves the final version.
 
-DAISY aims at recording all DPIA relevant information on the processing of sensitive data. DPIA is usually set up using a template that researchers customise to suit their research project. The idea is therefore to use the flexibility of the DSW tool to set up in DSW a knowledge model which will allow users to create a DPIA project by adding directly the relevant information contained in DAISY (GDPR data categories, Partners involved, GDPR roles, legal basis information, etc.)
+DPIA is commonly written using spreadsheet or text based templates with questions and predefined answers. This approach suffers from the absence of branching logic, overwhelming and poorly structured content and lack of support for collaborative editing. Furthermore, subsequent updates of the template make the whole process laborious and unnecessarily complex. Dedicated tools (e.g. PIA [citation PIA]) are also available and they do bring substantial help but they in general lack the ability of full customization of the template.
 
-Advantages:
-* Writing a DPIA in DSW offers the possibility for the user to be guided through the process with recommandations and questions following a well-defined hierarchical structure.
-* Also, it allows exporting the DPIA in a format and structure of choice (e.g. the CNIL template): that process is both machine- and human-readable.
+DSW offers variety of needed functionalities for DPIA document generation. It provides user access and project visibility control, which are necessary features since the DPIA content is often confidential. DSW supports creation of versioned structured questionnaire with a complex branching logic. Questions can be interlinked, accompanied by extensive explanation, hints, predefined answers and guidance and enriched by links to external sources (e.g. specific GDPR content) or integrations to local or external vocabularies. The smooth collaboration is possible thanks to ability to add comments on each question.
 
+Finally, as both data management plan and data protection impact assessment are usually composed by the same group of people at the same phase of the research project, using DSW for DPIA generation is very convenient as users can work in only one familiar environment.
 
 ## Creating a DPIA Knowledge Model
 
