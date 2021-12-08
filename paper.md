@@ -114,11 +114,7 @@ Once the question is answered using the widget, it works in the same way as the 
 
 ## Widget for DAISY Projects
 
-*TODO: Vilém (and Jan) - describe implementation on DAISY side*
-
-*TODO: Jan - screenshot of the "widget"*
-
-The widget implemented on DAISY's side allows users to pick their projects and send them back as an answer to DSW. When the widget is open in a popup window, it first checks whether the user is logged in. If so, they can see a list of their projects. If not, they are redirected to the login screen (within the same window), and after they log in, they can see their project. Then, they can pick one, the popup window is closed, and the answer is set in DSW.
+The widget implemented on DAISY's side allows users to select one of existing projects and send them back as an answer to DSW. When the widget is opened in a popup window, user is asked to log into Daisy. As the initial page is actual Daisy login form, user needs to use the Daisy login credentials. Once logged in, user is redirected to `/integrations/dsw/list-projects` Daisy endpoint presenting a list of projects he has access to. The list contains only records for which the user is appointed to as local custodian or personnel. The internal Daisy project ID, project's acronym and full title is presented. When a project of interest is clicked on, the popup window is closed, and the information is set in DSW.
 
 ![Integration widget in DAISY showing a list of user's projects](figures/daisy-integration-widget.png)
 
