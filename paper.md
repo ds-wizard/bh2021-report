@@ -94,15 +94,11 @@ Finally, our knowledge model was designed with user experience in mind. Complex 
 
 ## DPIA Document Template
 
-*TODO: Nene and Paulette - what was the process, how you worked, what is the result*
+A DPIA is required under the GDPR for any new project that is likely to involve a "high risk" to the personal data of concerned subjects. The template proposed by the CNIL, helps to carry out the DPIA in relation to data processing activities, meeting the requirements of the GDPR. The DPIA knowledge model, covers the main sections of the CNIL template and the DPIA Document Template is customised to also highlight those sections across the chapters of the DPIA knowledge model.
 
-In order to have the possibility to export the DPIA Knowledge model in a  document format which follow the structure of the CNIL Template, we have set up the DPIA Document Template.  It allows the different responses of the DPIA knowledge model to be collected in one document that can be exported in differents formats, e.g., HTML, MS WORD Document, etc... We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template; recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
+Therefore, using the DSW interface, users will be able to easily create their DPIA projects and export them in multiple formats (HTML, PDF, MS Word Document, etc..), by selecting the DPIA document template.
 
-## DPIA Projects in DSW
-
-*TODO: Nene and Vilém - how the results work together (KM+template)*
-
-The final  DPIA knowledge model  will be released through the DSW registry. Using the DSW interface, user will be able to easily create their DPIA projects and export them by selecting the DPIA document template, whose sections are mapped to those of the knowledge model.
+We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template; recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
 
 
 # Querying DAISY Data in DSW
