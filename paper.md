@@ -108,7 +108,7 @@ Therefore, we came up with the idea of an integration widget. Instead of a searc
 
 We implemented the [DSW Integration Widget SDK](https://github.com/ds-wizard/dsw-integration-widget-sdk), a JavaScript library that is a wrapper for sending the selected options back to DSW, and corresponding supporting code on the DSW side. The library and DSW uses JavaScript `Window.postMessage()` under the hood for the communication between DSW and the popup window with the widget. Besides sending the answers back to DSW, the library also checks whether the widget was invoked from the allowed DSW instance to avoid leaking information somewhere unwanted.
 
-Once the question is answered using the widget, it works in the same way as the standard integration question regarding how it is saved. We save the name of the project in DAISY and the link for the project so it can be used for further processing.
+Once the question is answered using the widget, it works in the same way as the standard integration question regarding how it is saved. We save the name of the project retrieved from DAISY and the url to the project so it can be used for further processing.
 
 ![Integration widget question in DSW - empty and with selected answer from DAISY](figures/dsw-daisy-question.png)
 
