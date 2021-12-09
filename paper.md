@@ -92,11 +92,18 @@ Although a risk assessment is very important part of a DPIA, our knowledge model
 Lastly, our knowledge model was designed with user experience in mind. Complex branching logic, question description and guidance allow users to fill the questionnaire without additional help.
 
 The final version of the DPIA knowledge model will be released through the DSW registry.
+
 ## DPIA Document Template
 
-A DPIA is required under the GDPR for any new project that is likely to involve a "high risk" to the personal data of concerned subjects. The template proposed by the CNIL, helps to carry out the DPIA in relation to data processing activities, meeting the requirements of the GDPR. The DPIA knowledge model, covers the main sections of the CNIL template and the DPIA Document Template is customised to also highlight those sections across the chapters of the DPIA knowledge model.
+We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template; recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
 
-Therefore, using the DSW interface, users will be able to easily create their DPIA projects and export them in multiple formats (HTML, PDF, MS Word Document, etc..), by selecting the DPIA document template.
+As a proof of concept, we have implemented DSW template which produces document matching the [CNIL Template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf). This template was chosen for its completeness and wide user base. Complexity of the knowledge model ensures the information required by other existing institutional DPIA templates is collected and new DSW templates can be implemented by the community.
+
+## DPIA Projects in DSW
+
+- 
+*TODO: Nene and Vilém - how the results work together (KM+template)*
+TODO: Mapping of questions from KM to the template - was it ok, was some sort of adjustment of the template needed? Are all questions in the template covered? 
 
 We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template; recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
 
