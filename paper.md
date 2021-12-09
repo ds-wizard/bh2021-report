@@ -99,14 +99,6 @@ We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-td
 
 As a proof of concept, we have implemented DSW template which produces document matching the [CNIL Template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf). This template was chosen for its completeness and wide user base. Complexity of the knowledge model ensures the information required by other existing institutional DPIA templates is collected and new DSW templates can be implemented by the community.
 
-## DPIA Projects in DSW
-
-- 
-*TODO: Nene and Vilém - how the results work together (KM+template)*
-TODO: Mapping of questions from KM to the template - was it ok, was some sort of adjustment of the template needed? Are all questions in the template covered? 
-
-We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template; recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
-
 
 # Querying DAISY Data in DSW
 
