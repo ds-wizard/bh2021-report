@@ -97,7 +97,7 @@ The final version of the DPIA Knowledge Model will be released through the DSW r
 
 We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template; recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
 
-As a proof of concept, we have implemented DSW template which produces document matching the [CNIL Template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf). This template was chosen for its completeness and wide user base. Complexity of the Knowledge Model ensures the information required by other existing institutional DPIA templates is collected and new DSW templates can be implemented by the community.
+As a proof of concept, we have implemented [DSW template](https://github.com/ds-wizard/dpia-template) which produces document matching the [CNIL Template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf). This template was chosen for its completeness and wide user base. Complexity of the Knowledge Model ensures the information required by other existing institutional DPIA templates is collected and new DSW templates can be implemented by the community.
 
 
 # Querying DAISY Data in DSW
@@ -161,7 +161,7 @@ The EeLP is based on the well-known [Moodle](https://moodle.org) learning manage
 
 # Conclusions and Future Steps
 
-We achieved to complete both tasks that we initially set. The custom DPIA Knowledge Model in DSW, together with the related document template, can be used to create a project in DSW and answer questions to get the DPIA document. Both of these deliverables will need final polishing, e.g., styling the document template, and then can be published. We plan to publish them on GitHub (the template) as well as using [DSW Registry](https://registry.ds-wizard.org) service so anyone can easily pull it to their own DSW instance. In this way, both can be easily updated and maintained over time, and others will quickly get the latest versions.
+We achieved to complete both tasks that we initially set. The custom DPIA Knowledge Model in DSW, together with the related [document template](https://github.com/ds-wizard/dpia-template), can be used to create a project in DSW and answer questions to get the DPIA document. Both of these deliverables will need final polishing, e.g., styling the document template, and then can be published. We plan to publish them on GitHub (the template) as well as using [DSW Registry](https://registry.ds-wizard.org) service so anyone can easily pull it to their own DSW instance. In this way, both can be easily updated and maintained over time, and others will quickly get the latest versions.
 
 The second task brought new features to DSW. The integration question with widget still need some adjustments on the backend side of DSW (making it a new type of integration question); however, it is fully operational. The feature enabling HTTP requests from document templates are finalized, and it may be enhanced in the future if needed. Both of these features were released in version 3.6.0 of DSW. The widget implementation on the DAISY side also became directly part of the codebase, and [DSW Integration Widget SDK](https://github.com/ds-wizard/dsw-integration-widget-sdk) has been published on [npmjs.com](https://www.npmjs.com/package/@ds-wizard/integration-widget-sdk). Finally, the DPIA appendix template is ready to be (re-)used and further developed as any other DSW document template.
 
