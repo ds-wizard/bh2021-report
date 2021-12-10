@@ -50,34 +50,55 @@ event: BH2021
 
 # Abstract
 
-This report summarizes our activities and achievements in connecting Data Stewardship Wizard (DSW) and DAISY during the ELIXIR BioHackathon Europe 2021. As a data information system for GDPR compliance, DAISY is very focused on a single goal – gathering all information required for GDPR compliance. On the other hand, DSW is very flexible and can be used even beyond data management planning. We worked on the connection on two fronts. First, we created a new Knowledge Model in DSW to make a data protection impact assessment (DPIA) and develop a related document template. Second, we introduced an integration between projects in DSW and DAISY and querying DAISY data upon document generation. Both of these independent activities brought successful results that were polished and published after the actual BioHackathon. Finally, we provide the related materials as an on-demand training course in the ELIXIR e-Learning Platform.
+This report summarizes our activities and achievements in integrating the Data Stewardship Wizard (DSW) and Data Information System (DAISY) tools during the ELIXIR BioHackathon Europe 2021. As a data information system for GDPR compliance, DAISY is focused on a single goal – gathering all information required for GDPR compliance. On another hand, DSW is very flexible and can be used beyond data management planning. We worked on the integration between both tools on two fronts. Firstly, we created a new Knowledge Model in DSW together with a document output template to be able to generate a data protection impact assessment (DPIA). Secondly, we introduced a new integration type between projects in DSW and DAISY that allows the querying of DAISY data upon document generation in DSW. Both of these independent activities brought successful results that were polished and published after the actual BioHackathon. Finally, we provide the related materials as an on-demand training course in the ELIXIR e-Learning Platform.
 
 # Introduction
 
-GDPR requires research projects with sensitive human data to perform a data protection impact assessment (DPIA) for documenting the project’s data protection risks and corresponding safeguards. Data stewards across Europe are tasked to support researchers with DPIAs, which occur commonly in tandem with data management planning. Two ELIXIR tools fall in the data protection realm. [Data Stewardship Wizard (DSW)](https://ds-wizard.org) [@dswPaper] raises awareness for data protection requirements, such as the DPIA. However, it is not specialised in DPIA reporting. The [Data Information System (DAISY)](https://elixir.pages.uni.lu/daisy-doc/) [@daisyPaper], which allows institutions to keep a register of their projects using sensitive data, stores structured information on the project’s GDPR-relevant aspects – crucial input to a DPIA. Meanwhile, DAISY lacks the means to combine project facts with the narrative response needed in a DPIA.
+The GDPR requires research projects with sensitive human data to perform a data protection impact assessment (DPIA) for documenting the project’s data protection risks and corresponding safeguards. Data stewards across Europe are tasked to support researchers with DPIAs, which occur commonly in tandem with data management planning. Two ELIXIR tools fall in the data protection realm. [Data Stewardship Wizard (DSW)](https://ds-wizard.org) [@dswPaper], which for now is used mainly to help in data management planning, raises awareness for data protection requirements such as the DPIA. However, it is not specialised in DPIA reporting. The [Data Information System (DAISY)](https://elixir.pages.uni.lu/daisy-doc/) [@daisyPaper], which allows institutions to keep a register of their projects using sensitive data, stores structured information on the project’s GDPR-relevant aspects – the crucial input to a DPIA. Meanwhile, DAISY lacks the means to combine the project facts into the narrative response needed in a DPIA.
 
-As the DSW and DAISY are highly complementary, we decided to integrate the two to support DPIAs. The integration has been designed in two independent tasks:
+As the DSW and DAISY are highly complementary, we decided to integrate the two to support DPIAs in DSW. The integration has been designed in two independent tasks:
 
-1. **DPIA in DSW (Content-Based Integration)**: Allow to create DPIA directly in DSW by introducing a new Knowledge Model (questionnaire structure) and corresponding document template. After achieving this task, a user may create a DPIA project in DSW, fill in the information, and get a DPIA document. During the work in DSW, the user may benefit from all the features, including version history, collaboration, comments, and others.
-2. **Querying DAISY Data in DSW (Technical Integration)**: Enable linking a project in DAISY inside a project in DSW and querying DAISY project details using API when necessary. The goal is to benefit from DAISY GDPR-specific features and allow us to use them when generating documents in DSW. For example, the results of these tasks can be then used to create a data management plan (DMP) appendix related to GDPR compliance.
+1. **DPIA in DSW (Content-Based Integration)**: Allows to create a DPIA directly in DSW by introducing a new Knowledge Model (questionnaire structure) and a corresponding document output template. Thus, users may create a DPIA project in DSW, fill in the information, and generate a DPIA document. Also, working with DSW, users will benefit from all its intrinsic features like version history, collaboration, comments, and others.
+2. **Querying DAISY Data in DSW (Technical Integration)**: Enables linking to a project in DAISY from within a project in DSW and so querying the DAISY project details using an API when necessary. The goal is to benefit from DAISY GDPR-specific features and allow users to use those when generating documents in DSW. For example, one can then add to the data management plan (DMP) an appendix that exclusively deals with GDPR compliance.
 
-To support the use of our output, we planned to compose a brief on-demand training course in the ELIXIR e-Learning Platform. Training on DPIAs has already been identified as a gap by the ELIXIR Training Platform.
+To support and disseminate the use of our integration work, we also planned to compose a brief on-demand training course in the ELIXIR e-Learning Platform. Training on DPIAs has already been identified as a gap by the ELIXIR Training Platform.
+
 
 # DPIA in DSW
 
-*TODO: (Pinar) and Vilém - motivation for having DPIA KM+template in DSW, core idea and advantages*
+Writing a data protection impact assessment for a scientific project is a challenging task. Input from multiple key groups is required to obtain complete and precise information. In addition to data stewards, which are commonly in charge of the information collection since their expertise overlaps all other concerned domains, the process involves researchers themselves bringing their own knowledge about the data involved and the related scientific processes. Data managers and IT staff who are knowledgeable about the local IT infrastructure, and external collaborators may also report on the shared data processing tasks. Finally, legal representatives (e.g. data protection officers) validate the resulting document using existing contracts and institutional policies.
 
-## Forming DPIA Knowledge Model
+A DPIA is commonly written using spreadsheet or text based templates with questions and predefined answers. This approach suffers from the absence of a branching logic, overwhelming and poorly structured content, and a lack of support for collaborative editing. Furthermore, subsequent updates of the template make the whole process laborious and unnecessarily complex. Dedicated tools (e.g. [Processing Impact Assessment](https://www.cnil.fr/en/open-source-pia-software-helps-carry-out-data-protection-impact-assesment) from the Commission Nationale de l'Informatique et des Libertés (CNIL)) are also available and they do bring substantial help but in general they lack the ability of a full customization of the template.
 
-*TODO: (Pinar), Vilém, Nene, and Paulette - what was the process, how you worked, what is the result*
+DSW offers a variety of needed functionalities for DPIA document generation. It provides user access and project visibility control, which are necessary features since the DPIA content is often confidential. DSW supports the creation of a versioned structured questionnaire with a complex branching logic. Questions can be interlinked, accompanied by extensive explanations, hints, predefined answers and guidance; it may be enriched by links to external sources (e.g. specific GDPR content) or integrations to local or external vocabularies. The smooth collaboration is possible thanks to the ability to add comments on each question.
+
+Finally, as both data management plan and data protection impact assessment are usually composed by the same group of people at the same phase of the research project, using DSW for DPIA generation is very convenient as users can work in only one familiar environment.
+
+## Creating a DPIA Knowledge Model
+
+The DPIA Knowledge Model is mainly inspired by several existing documents, namely the [CNIL DPIA document template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf), the DPIA document template used by the Luxembourg Centre for Systems Biomedicine and the [ICO guidance](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/data-protection-impact-assessments-dpias/how-do-we-do-a-dpia/#how)) on data protection.
+
+The first chapter collects administrative information and description of the method(s) followed to establish the project's DPIA. Following chapters contain questions related to:
+
+* The identification of the need for a DPIA
+* The nature, scope, context and purposes of the processing of data, as well as the list of related responsibilities
+* The data processes and supporting assets
+* The proportionality and necessity of the processing
+* The measures taken to protect the rights of the subjects
+* The identification, analysis, and evaluation of the data risks factors and the measures and controls to mitigate those risks
+
+Although a risk assessment is a very important part of the DPIA, our Knowledge Model is addressing it very briefly by questions on general controls which are or will be in place. As risks generally depend on the infrastructure used and the institutional units involved, they would apply globally to all the processing under their authority. We propose a process where the risk assessment matrix can be generated by in-house or external professionals using dedicated tools (e.g. [Monarc](https://www.monarc.lu/)) and reused for each DPIA as a resource. For this purpose, our Knowledge Model includes a question to provide link to such a document.
+
+Lastly, our Knowledge Model was designed with user experience in mind. Complex branching logic, question description and guidance allow users to fill the questionnaire without additional help.
+
+The final version of the DPIA Knowledge Model will be released through the DSW registry.
 
 ## DPIA Document Template
 
-*TODO: Nene and Paulette - what was the process, how you worked, what is the result*
+We used the [Template Development Kit (TDK)](https://github.com/ds-wizard/dsw-tdk) provided by DSW for the creation and the customization of the template; recommendations and hints can be found [here](https://docs.ds-wizard.org/en/latest/dev/templates.html).
 
-## DPIA Projects in DSW
+As a proof of concept, we have implemented [DSW template](https://github.com/ds-wizard/dpia-template) which produces document matching the [CNIL Template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf). This template was chosen for its completeness and wide user base. Complexity of the Knowledge Model ensures the information required by other existing institutional DPIA templates is collected and new DSW templates can be implemented by the community.
 
-*TODO: Nene and Vilém - how the results work together (KM+template)*
 
 # Querying DAISY Data in DSW
 
@@ -95,7 +116,7 @@ DSW already supports integration question since v1.6.0 (April 2019). It allows t
 
 We tried that it is possible to create such an integration for DAISY projects. However, it has two pitfalls:
 
-1. To access the API, secret token must be used for authorization. Everyone who wanting to have such a question (or whole knowledge model) in their DSW instance would need to acquire such token and place it into server configuration file.
+1. To access the API, secret token must be used for authorization. Everyone who wanting to have such a question (or whole Knowledge Model) in their DSW instance would need to acquire such token and place it into server configuration file.
 2. As there is no way to distinguish specific users, it must provide all (published) projects from DAISY. The natural behavior -- displaying only projects related to the user filling the questionnaire -- is not achievable.
 
 To overcome these two issues, we designed a new type of integration question described in the following subsection.
@@ -140,7 +161,7 @@ The EeLP is based on the well-known [Moodle](https://moodle.org) learning manage
 
 # Conclusions and Future Steps
 
-We achieved to complete both tasks that we initially set. The custom DPIA Knowledge Model in DSW, together with the related document template, can be used to create a project in DSW and answer questions to get the DPIA document. Both of these deliverables will need final polishing, e.g., styling the document template, and then can be published. We plan to publish them on GitHub (the template) as well as using [DSW Registry](https://registry.ds-wizard.org) service so anyone can easily pull it to their own DSW instance. In this way, both can be easily updated and maintained over time, and others will quickly get the latest versions.
+We achieved to complete both tasks that we initially set. The custom DPIA Knowledge Model in DSW, together with the related [document template](https://github.com/ds-wizard/dpia-template), can be used to create a project in DSW and answer questions to get the DPIA document. Both of these deliverables will need final polishing, e.g., styling the document template, and then can be published. We plan to publish them on GitHub (the template) as well as using [DSW Registry](https://registry.ds-wizard.org) service so anyone can easily pull it to their own DSW instance. In this way, both can be easily updated and maintained over time, and others will quickly get the latest versions.
 
 The second task brought new features to DSW. The integration question with widget still need some adjustments on the backend side of DSW (making it a new type of integration question); however, it is fully operational. The feature enabling HTTP requests from document templates are finalized, and it may be enhanced in the future if needed. Both of these features were released in version 3.6.0 of DSW. The widget implementation on the DAISY side also became directly part of the codebase, and [DSW Integration Widget SDK](https://github.com/ds-wizard/dsw-integration-widget-sdk) has been published on [npmjs.com](https://www.npmjs.com/package/@ds-wizard/integration-widget-sdk). Finally, the DPIA appendix template is ready to be (re-)used and further developed as any other DSW document template.
 
