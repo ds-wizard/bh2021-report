@@ -26,10 +26,10 @@ authors:
     orcid: 0000-0002-9289-9652
     affiliation: 3
   - name: Marko Vidak
-    orcid: 
+    orcid: 0000-0001-7901-3936
     affiliation: 4
   - name: Nadja Zlender
-    orcid: 
+    orcid: 0000-0001-5913-5530
     affiliation: 4
 affiliations:
   - name: Faculty of Information Technology, Czech Technical University in Prague
@@ -38,7 +38,7 @@ affiliations:
     index: 2
   - name: Institut Français de Bioinformatique (IFB)
     index: 3
-  - name: Institute for Biostatistics and Medical Informatics
+  - name: Institute for Biostatistics and Medical Informatics, University of Ljubljana
     index: 4
 date: 23 November 2021
 bibliography: paper.bib
