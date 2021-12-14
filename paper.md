@@ -50,7 +50,7 @@ event: BH2021
 
 # Abstract
 
-This report summarizes our activities and achievements in integrating the Data Stewardship Wizard (DSW) and Data Information System (DAISY) tools during the ELIXIR BioHackathon Europe 2021. As a data information system for GDPR compliance, DAISY is focused on a single goal – gathering all information required for GDPR compliance. On another hand, DSW is very flexible and can be used beyond data management planning. We worked on the integration between both tools on two fronts. Firstly, we created a new Knowledge Model in DSW together with a document output template to be able to generate a data protection impact assessment (DPIA). Secondly, we introduced a new integration type between projects in DSW and DAISY that allows the querying of DAISY data upon document generation in DSW. Both of these independent activities brought successful results that were polished and published after the actual BioHackathon. Finally, we provide the related materials as an on-demand training course in the ELIXIR eLearning Platform.
+This report summarizes our activities and achievements in integrating the Data Stewardship Wizard (DSW) and Data Information System (DAISY) tools during the ELIXIR BioHackathon Europe 2021. As a data information system for GDPR compliance, DAISY is focused on a single goal – gathering all information required for GDPR accountability of biomedical research projects. On another hand, DSW is very flexible and can be used beyond data management planning. We worked on the integration between both tools on two fronts. Firstly, we created a new Knowledge Model in DSW together with a document output template to be able to generate a data protection impact assessment (DPIA). Secondly, we introduced a new integration type between projects in DSW and DAISY that allows the querying of DAISY data upon document generation in DSW. Both of these independent activities brought successful results that were polished and published after the actual BioHackathon. Finally, we provide the related materials as an on-demand training course in the ELIXIR eLearning Platform.
 
 
 # Introduction
@@ -77,7 +77,7 @@ Finally, as both data management plan and data protection impact assessment are 
 
 ## Creating a DPIA Knowledge Model
 
-The DPIA Knowledge Model is mainly inspired by several existing documents, namely the [CNIL DPIA document template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf), the DPIA document template used by the Luxembourg Centre for Systems Biomedicine and the [ICO guidance](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/data-protection-impact-assessments-dpias/how-do-we-do-a-dpia/#how)) on data protection.
+The DPIA Knowledge Model is mainly inspired by several existing documents, namely the [CNIL DPIA document template](https://www.cnil.fr/sites/default/files/atoms/files/cnil-pia-2-en-templates.pdf), the DPIA document template used by the Luxembourg Centre for Systems Biomedicine and the [ICO guidance](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/data-protection-impact-assessments-dpias/how-do-we-do-a-dpia/#how) on data protection.
 
 The first chapter collects administrative information and description of the method(s) followed to establish the project's DPIA. Following chapters contain questions related to:
 
@@ -103,7 +103,7 @@ As a proof of concept, we have implemented [DSW template](https://github.com/ds-
 
 # Querying DAISY Data in DSW
 
-The other independent approach that we decided to implement uses linking a DAISY project from DSW and then querying data using DAISY API when needed. The overal idea is shown in Figure 1. A use case may be described as follows. A user of DSW works on a project (with a goal to get a DMP but not limited to it) and in the questionnaire selects a question that uses an API integration to a project in DAISY. That is, answering to this question will trigger an API call to retrieve project data from DAISY. At the moment of document production, that is, producing the actual DMP or DPIA report, current DAISY project data is queried using a DAISY REST API and is formatted using the desired template. The user then gets a document with data from the DAISY project appropriately included within other data originating directly from answering questions in the DSW project.
+The other independent approach that we decided to implement uses linking a DAISY project from DSW and then querying data using DAISY API when needed. The overal idea is shown in Figure 1. User of DSW works on its project (with a goal to get a DMP but not limited to it) and in the questionnaire selects using an integration question one of the projects in DAISY. Now, the project from DAISY is linked via its link stored as a reply in DSW project. When user wants to produce a document, e.g., a DMP, DPIA or other report, current DAISY project data are queried using DAISY REST API and transformed into the desired format. The user gets a document with structured data from DAISY project appropriately included within the other data originated directly from replies in DSW.
 
 ![Design of DSW-DAISY Integration](./figures/integration-workflow.png)
 
@@ -117,7 +117,7 @@ DSW supports integration questions since v1.6.0 (April 2019). It allows to query
 
 We attempted to use this integration feature as is to query DAISY projects. However, it has two pitfalls:
 
-1. To access the API, a secret token must be used for authentication. Everyone wanting to include an API call into a such a Knowledge Model question would need to acquire such a token and place it into the DSW server configuration file.
+1. To access the API, secret token must be used for authorization. Everyone wanting to have such a question (or whole Knowledge Model) in their DSW instance would need to acquire such token and place it into server configuration file.
 2. As there is no way to distinguish specific users, the call response will consist of all (published) projects from DAISY. The natural behaviour -- displaying only projects related to the user filling the questionnaire -- is not achievable.
 
 This is obviously not practical and one must thus overcome the need for authentication. To overcome these two issues, we designed a new type of integration question described in the following subsection.
@@ -168,10 +168,13 @@ We completed the two tasks that we set initially. The DPIA Knowledge Model in DS
 
 The second task brought new features to DSW. The integration question with a widget still needs some adjustments on the backend side of DSW (making it a new type of integration question); however, it is fully operational. The feature enabling HTTP requests from the document templates is finalized, and it may be enhanced in the future if needed. Both of these features were released in version 3.6.0 of DSW. The widget implementation on the DAISY side also became directly part of the its codebase, and [DSW Integration Widget SDK](https://github.com/ds-wizard/dsw-integration-widget-sdk) has been published on [npmjs.com](https://www.npmjs.com/package/@ds-wizard/integration-widget-sdk). Finally, the DPIA appendix template is ready to be (re-)used and further developed as any other DSW document template.
 
+The integration task achieved in this project allowed us to extend the DAISY API and expose more of project information in the DAISY database. The resulting  DAISY API is re-usable not just for DPIAs but also to for DMPs or any other project documentation that shall include up-to-date factual information on the project.
+
+We observe that the resulting tool integration and knowledge model is a candidate best practice for addressing data protection and GDPR accountability in biomedical research projects. As a next step towards validation of our approach we will be linking the DPIA Knowledge Model in DSW to the Data Protection guidance in [ELIXIR's RDMkit](https://rdmkit.elixir-europe.org). We will continue to improve the knowledge model based on feedback of the RDMkit users and the wider community.
 
 # Acknowledgements
 
-This work was done during the BioHackathon Europe 2021 organized by ELIXIR in November 2021. We thank the organizers and fellow participants. The development and operation of DSW is supported by ELIXIR CZ research infrastructure (MEYS Grant No. LM2018131) and ELIXIR-CONVERGE (H2020 No. 871075).  
+This work was done during the BioHackathon Europe 2021 organized by ELIXIR in November 2021. We thank the organizers and fellow participants. The development and operation of DSW is supported by ELIXIR CZ research infrastructure (MEYS Grant No. LM2018131) and ELIXIR-CONVERGE (H2020 No. 871075). Contribution of ELIXIR LU is partially funded by the Luxembourg Ministry of Higher Education and Research.  
 
 
 # References
